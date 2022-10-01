@@ -2,11 +2,16 @@
 @title redirect_qq_media_to_bandupan
 setlocal
 ::base dir
-set base_dir=%UserProfile%\Documents\"Tencent Files"\%1\
-if not exist %base_dir% ( echo base dir not exists 
-pause
-exit
+if not exist %2 (
+	set base_dir=%UserProfile%\Documents\"Tencent Files"\%1\
+	if not exist %base_dir% ( echo base dir not exists 
+	pause
+	exit
+	)
+) else (
+	set base_dir=%2\"Tencent Files"\%1\
 )
+
 ::dest dir
 set dest=%base_dir%\FileRecv
 if not exist %dest% ( echo sync dir not found

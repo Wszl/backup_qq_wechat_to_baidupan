@@ -1,11 +1,14 @@
 @echo off
 @title redirect_wecaht_media_to_bandupan
 setlocal
-set wechat_id=wxid_oe6t9czq5dp21
-set base_dir=%UserProfile%\Documents\"WeChat Files"\%1\
-if not exist %base_dir% ( echo base dir not exists 
-pause
-exit
+if not exist %2 (
+	set base_dir=%UserProfile%\Documents\"WeChat Files"\%1\
+	if not exist %base_dir% ( echo base dir not exists 
+	pause
+	exit
+	)
+) else (
+	set base_dir=%2\"WeChat Files"\%1\
 )
 
 ::sync dir
